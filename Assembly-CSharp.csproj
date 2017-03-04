@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CubeBoxGenerator.cs" />
      <Compile Include="Assets\Scripts\D3MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\LifeEngine.cs" />
      <Compile Include="Assets\Scripts\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\MeshGenerator.cs" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />

@@ -38,9 +38,7 @@ public class CubeBoxGenerator : MonoBehaviour {
 						);
 
 						cubes[x,y,z] = Instantiate(cube, pos, Quaternion.identity) as GameObject;
-
-						MeshRenderer cubeMesh = cubes[x,y,z].GetComponent<MeshRenderer>();
-						cubeMesh.material.color = map[x,y,z] == 1 ? Color.black : Color.white;
+						SetCubeColor(x, y, z, map[x,y,z]);
 					}
 				}
 			}
@@ -54,51 +52,17 @@ public class CubeBoxGenerator : MonoBehaviour {
 			for (int x = 0; x < nodeCountX; x++) {
 				for (int y = 0; y < nodeCountY; y++) {
 					for (int z = 0; z < nodeCountZ; z++) {
-						MeshRenderer cubeMesh = cubes[x,y,z].GetComponent<MeshRenderer>();
-						cubeMesh.material.color = map[x,y,z] == 1 ? Color.black : Color.white;
+						SetCubeColor(x,y,z, map[x,y,z]);
 					}
 				}
 			}
 		}
+
+		private void SetCubeColor(int x, int y, int z, int status) {
+//			MeshRenderer cubeMesh = cubes[x,y,z].GetComponent<MeshRenderer>();
+//			cubeMesh.material.color = status == 1 ? Color.black : Color.white;
+
+			cubes[x, y, z].GetComponent<MeshRenderer>().enabled = status == 1 ? true : false;
+		}
 	}
 }
-
-//	public class Square {
-//
-//		public ControlNode topLeft, topRight, bottomRight, bottomLeft;
-//		public Node centreTop, centreRight, centreBottom, centreLeft;
-//
-//		public Square (ControlNode _topLeft, ControlNode _topRight, ControlNode _bottomRight, ControlNode _bottomLeft) {
-//			topLeft = _topLeft;
-//			topRight = _topRight;
-//			bottomRight = _bottomRight;
-//			bottomLeft = _bottomLeft;
-//
-//			centreTop = topLeft.right;
-//			centreRight = bottomRight.above;
-//			centreBottom = bottomLeft.right;
-//			centreLeft = bottomLeft.above;
-//		}
-//	}
-//
-//	public class Node {
-//		public Vector3 position;
-//		public int vertexIndex = -1;
-//
-//		public Node(Vector3 _pos) {
-//			position = _pos;
-//		}
-//	}
-//
-//	public class ControlNode : Node {
-//
-//		public bool active;
-//		public Node above, right;
-//
-//		public ControlNode(Vector3 _pos, bool _active, float squareSize) : base(_pos) {
-//			active = _active;
-//			above = new Node(position + Vector3.forward * squareSize/2f);
-//			right = new Node(position + Vector3.right * squareSize/2f);
-//		}
-//	}
-//}

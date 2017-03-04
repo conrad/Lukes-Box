@@ -7,6 +7,7 @@ public class D3MapGenerator : MonoBehaviour {
 	public int width;
 	public int height;
 	public int depth;
+	public float updateTime;
 
 	public string seed;
 	public bool useRandomSeed;
@@ -15,15 +16,19 @@ public class D3MapGenerator : MonoBehaviour {
 	public int randomFillPercent;		// Eventaully, make this change dynamically over time
 
 	int[,,] map;
+	LifeEngine lifeEngine;
 
 	void Start() {
 		GenerateMap();
+		lifeEngine = new LifeEngine(map);
+		StartCoroutine(UpdateMap());
 	}
 
 	void Update() {
 		if (Input.GetMouseButtonDown(0)) {
 			GenerateMap();
 		}
+
 	}
 
 	void GenerateMap() {
@@ -32,7 +37,21 @@ public class D3MapGenerator : MonoBehaviour {
 
 		CubeBoxGenerator cubeBoxGen = GetComponent<CubeBoxGenerator>();
 		cubeBoxGen.GenerateCubeBox(map, 2);
+	}
 
+	private IEnumerator UpdateMap() {
+		while (true) {
+			for (int x = 0; x < width; x++) {
+				for (int y = 0; y < height; y++) {
+					for (int z = 0; z < depth; z++) {
+						map[x, y, z] = lifeEngine.calc(x, y, z);
+					}
+				}
+			}
+			yield return new WaitForSeconds(updateTime);
+			CubeBoxGenerator cubeBoxGen = GetComponent<CubeBoxGenerator>();
+			cubeBoxGen.GenerateCubeBox(map, 2);
+		}
 	}
 
 
