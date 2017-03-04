@@ -6,22 +6,25 @@ public class CubeBoxGenerator : MonoBehaviour {
 	public CubeGrid cubeGrid;
 	public GameObject cube;
 	public int spacing;
-
+	public int anchorX, anchorY, anchorZ;
 
 	public void GenerateCubeBox(int[,,] map) {
 		if (cubeGrid == null) {
-			cubeGrid = new CubeGrid (map, cube, spacing);
+			Vector3 anchor = new Vector3(anchorX, anchorY, anchorZ);
+			cubeGrid = new CubeGrid (map, cube, spacing, anchor);
 		} else {
 			cubeGrid.UpdateBox(map);
 		}
 	}
+
+
 		
 	public class CubeGrid {
 
 		public GameObject[,,] cubes;
 
 
-		public CubeGrid(int[,,] map, GameObject cube, float cubeSize) {
+		public CubeGrid(int[,,] map, GameObject cube, float cubeSize, Vector3 anchor) {
 			int nodeCountX = map.GetLength(0);
 			int nodeCountY = map.GetLength(1);
 			int nodeCountZ = map.GetLength(2);
@@ -35,9 +38,9 @@ public class CubeBoxGenerator : MonoBehaviour {
 				for (int y = 0; y < nodeCountY; y ++) {
 					for (int z = 0; z < nodeCountZ; z ++) {
 						Vector3 pos = new Vector3(
-							-mapWidth/2 + x * cubeSize + cubeSize/2, 
-							-mapHeight/2 + y * cubeSize + cubeSize/2, 
-							-mapDepth/2 + z * cubeSize + cubeSize/2
+							anchor.x + -mapWidth/2 + x * cubeSize + cubeSize/2, 
+							anchor.y + -mapHeight/2 + y * cubeSize + cubeSize/2, 
+							anchor.z + -mapDepth/2 + z * cubeSize + cubeSize/2
 						);
 
 						cubes[x,y,z] = Instantiate(cube, pos, Quaternion.identity) as GameObject;
@@ -70,4 +73,5 @@ public class CubeBoxGenerator : MonoBehaviour {
 			cubes[x, y, z].GetComponent<MeshRenderer>().enabled = status == 1 ? true : false;
 		}
 	}
+
 }
