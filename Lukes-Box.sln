@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cave-Generation", "Assembly-CSharp.csproj", "{EE1937A2-6873-5D02-5461-69FA13B652A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
