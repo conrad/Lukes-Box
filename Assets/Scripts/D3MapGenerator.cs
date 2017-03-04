@@ -18,26 +18,35 @@ public class D3MapGenerator : MonoBehaviour {
 	int[,,] map;
 	LifeEngine lifeEngine;
 
+
 	void Start() {
 		GenerateMap();
 		lifeEngine = new LifeEngine(map);
 		StartCoroutine(UpdateMap());
 	}
 
+
+
 	void Update() {
 		if (Input.GetMouseButtonDown(0)) {
+			StopCoroutine(UpdateMap());
 			GenerateMap();
+			StartCoroutine(UpdateMap());
 		}
 
 	}
+
+
 
 	void GenerateMap() {
 		map = new int[width, height, depth];
 		RandomFillMap();
 
 		CubeBoxGenerator cubeBoxGen = GetComponent<CubeBoxGenerator>();
-		cubeBoxGen.GenerateCubeBox(map, 2);
+		cubeBoxGen.GenerateCubeBox(map);
 	}
+
+
 
 	private IEnumerator UpdateMap() {
 		while (true) {
@@ -50,9 +59,10 @@ public class D3MapGenerator : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(updateTime);
 			CubeBoxGenerator cubeBoxGen = GetComponent<CubeBoxGenerator>();
-			cubeBoxGen.GenerateCubeBox(map, 2);
+			cubeBoxGen.GenerateCubeBox(map);
 		}
 	}
+
 
 
 	void RandomFillMap() {
@@ -70,6 +80,8 @@ public class D3MapGenerator : MonoBehaviour {
 			}
 		}
 	}
+
+
 
 //	void OnDrawGizmos() {
 //		if (map != null) {

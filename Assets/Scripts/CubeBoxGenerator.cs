@@ -5,10 +5,12 @@ public class CubeBoxGenerator : MonoBehaviour {
 
 	public CubeGrid cubeGrid;
 	public GameObject cube;
+	public int spacing;
 
-	public void GenerateCubeBox(int[,,] map, float cubeSize) {
+
+	public void GenerateCubeBox(int[,,] map) {
 		if (cubeGrid == null) {
-			cubeGrid = new CubeGrid (map, cube, cubeSize);
+			cubeGrid = new CubeGrid (map, cube, spacing);
 		} else {
 			cubeGrid.UpdateBox(map);
 		}
@@ -17,6 +19,7 @@ public class CubeBoxGenerator : MonoBehaviour {
 	public class CubeGrid {
 
 		public GameObject[,,] cubes;
+
 
 		public CubeGrid(int[,,] map, GameObject cube, float cubeSize) {
 			int nodeCountX = map.GetLength(0);
@@ -44,6 +47,7 @@ public class CubeBoxGenerator : MonoBehaviour {
 			}
 		}
 
+
 		public void UpdateBox(int[,,] map) {
 			int nodeCountX = map.GetLength(0);
 			int nodeCountY = map.GetLength(1);
@@ -57,6 +61,7 @@ public class CubeBoxGenerator : MonoBehaviour {
 				}
 			}
 		}
+
 
 		private void SetCubeColor(int x, int y, int z, int status) {
 //			MeshRenderer cubeMesh = cubes[x,y,z].GetComponent<MeshRenderer>();

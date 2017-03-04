@@ -17,6 +17,7 @@ public class LifeEngine {
 		depth = map.GetLength(2);
 	}
 
+
 	public int calc(int x, int y, int z) {
 		if (map [x, y, z] == 1) {
 			return calcOne(x, y, z);
@@ -24,6 +25,7 @@ public class LifeEngine {
 
 		return calcZero(x, y, z);
 	}
+
 
 	int calcZero(int x, int y, int z) {
 		int neighbors = GetNeighborCount(x, y, z);
@@ -35,19 +37,21 @@ public class LifeEngine {
 		return 0;
 	}
 
+
 	int calcOne(int x, int y, int z) {
 		int neighbors = GetNeighborCount(x, y, z);
 
-		if (neighbors < 4) {
+		if (neighbors < 5) {
 			return 0;
 		}
 
-		if (neighbors > 6) {
+		if (neighbors > 5) {
 			return 0;
 		}
 
 		return 1;
 	}
+
 
 	int GetNeighborCount(int gridX, int gridY, int gridZ) {
 		int neighborCount = 0;
@@ -61,8 +65,6 @@ public class LifeEngine {
 						if (neighbourX != gridX || neighbourY != gridY || neighbourZ != gridZ) {
 							neighborCount += map[neighbourX, neighbourY, neighbourZ];
 						}
-					} else {
-						neighborCount++;
 					}
 				}
 			}
@@ -70,8 +72,6 @@ public class LifeEngine {
 	
 		return neighborCount;
 	}
-
-
 
 }
 
