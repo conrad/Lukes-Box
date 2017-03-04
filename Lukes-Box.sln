@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cave-Generation", "Assembly-CSharp.csproj", "{EE1937A2-6873-5D02-5461-69FA13B652A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lukes-Box", "Assembly-CSharp-firstpass.csproj", "{D433A75D-500B-F7B9-108D-923F0E03C77E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lukes-Box", "Assembly-CSharp.csproj", "{063B6008-8D39-C751-7DC1-C5787B7F94B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE1937A2-6873-5D02-5461-69FA13B652A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D433A75D-500B-F7B9-108D-923F0E03C77E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D433A75D-500B-F7B9-108D-923F0E03C77E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D433A75D-500B-F7B9-108D-923F0E03C77E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D433A75D-500B-F7B9-108D-923F0E03C77E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063B6008-8D39-C751-7DC1-C5787B7F94B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063B6008-8D39-C751-7DC1-C5787B7F94B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063B6008-8D39-C751-7DC1-C5787B7F94B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063B6008-8D39-C751-7DC1-C5787B7F94B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
