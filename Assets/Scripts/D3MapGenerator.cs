@@ -26,16 +26,13 @@ public class D3MapGenerator : MonoBehaviour {
 	}
 
 
-
 	void Update() {
 		if (Input.GetMouseButtonDown(0)) {
 			StopCoroutine(UpdateMap());
 			GenerateMap();
 			StartCoroutine(UpdateMap());
 		}
-
 	}
-
 
 
 	void GenerateMap() {
@@ -45,7 +42,6 @@ public class D3MapGenerator : MonoBehaviour {
 		CubeBoxGenerator cubeBoxGen = GetComponent<CubeBoxGenerator>();
 		cubeBoxGen.GenerateCubeBox(map);
 	}
-
 
 
 	private IEnumerator UpdateMap() {
@@ -64,7 +60,6 @@ public class D3MapGenerator : MonoBehaviour {
 	}
 
 
-
 	void RandomFillMap() {
 		if (useRandomSeed) {
 			seed = Time.time.ToString();
@@ -80,7 +75,6 @@ public class D3MapGenerator : MonoBehaviour {
 			}
 		}
 	}
-
 
 
 //	void OnDrawGizmos() {
