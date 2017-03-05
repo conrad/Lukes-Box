@@ -4,6 +4,33 @@ using UnityEngine;
 
 public class Fader : MonoBehaviour 
 {
+	float alphaLevel; 
+	MeshRenderer meshRenderer;
+
+	void Start()
+	{
+		meshRenderer = GetComponent<MeshRenderer>();
+		alphaLevel = meshRenderer.material.color.a;
+	}
+
+	void Update()
+	{
+		if (alphaLevel > 0f) {
+			alphaLevel -= 0.1f;
+			Debug.Log(alphaLevel);
+			meshRenderer.material.color = new Color(1f, 1f, 1f, alphaLevel);
+
+			if (alphaLevel < 0.1f) {
+				alphaLevel = 0f;
+				meshRenderer.material.color = new Color(1f, 1f, 1f, alphaLevel);
+			}
+		}
+	}
+}
+
+
+
+
 //	[SerializeField] private float fadePerSecond = 2.5f;
 //
 //	private void Update() 
@@ -15,7 +42,7 @@ public class Fader : MonoBehaviour
 //
 //		Debug.Log("update");	
 //	}
-}
+//}
 
 
 //	void LerpAlpha()

@@ -76,10 +76,10 @@ public class CubeBoxGenerator : MonoBehaviour {
 
 
 		private void SetCubeColor(int x, int y, int z, int status) {
-			MeshRenderer cubeMesh = cubes[x,y,z].GetComponent<MeshRenderer>();
-			cubeMesh.material.color = status == 1 ? Color.black : Color.white;
+//			MeshRenderer cubeMesh = cubes[x,y,z].GetComponent<MeshRenderer>();
+//			cubeMesh.material.color = status == 1 ? Color.black : Color.white;
 
-//			cubes[x, y, z].GetComponent<MeshRenderer>().enabled = status == 1 ? true : false;
+			cubes[x, y, z].GetComponent<MeshRenderer>().enabled = status == 1 ? true : false;
 
 //			if (status == 1) {
 //				cubes[x, y, z].gameObject.transform.localScale = Vector3.Lerp(
