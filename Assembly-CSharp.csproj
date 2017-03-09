@@ -46,6 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MouseLook.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Fader.cs" />
      <Compile Include="Assets\Scripts\LifeEngine.cs" />
      <Compile Include="Assets\Scripts\LukesBox\CubeBoxGenerator.cs" />
