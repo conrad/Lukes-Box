@@ -9,13 +9,19 @@ public class Edge3DMeshGenerator : MonoBehaviour
 	public int cellSize;
 	public int anchorX, anchorY, anchorZ;
 
-	public void GenerateCubeBox(int[,,] map) {
+	public void Generate(int[,,] map) {
 		if (cubeGrid == null) {
 			Vector3 anchor = new Vector3(anchorX, anchorY, anchorZ);
 			cubeGrid = new CubeGrid (this.gameObject, map, cube, cellSize, anchor);
 		} else {
-			cubeGrid.UpdateBox(map);
+			cubeGrid.Render(map);
 		}
+	}
+
+
+	public void Render(int[,,] map)
+	{
+		cubeGrid.Render(map);
 	}
 
 
@@ -60,7 +66,7 @@ public class Edge3DMeshGenerator : MonoBehaviour
 		}
 
 
-		public void UpdateBox(int[,,] map) {
+		public void Render(int[,,] map) {
 			int nodeCountX = map.GetLength(0);
 			int nodeCountY = map.GetLength(1);
 			int nodeCountZ = map.GetLength(2);

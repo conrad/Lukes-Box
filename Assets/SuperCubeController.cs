@@ -7,20 +7,49 @@ using UnityEngine;
  */ 
 public class SuperCubeController : MonoBehaviour 
 {
+	public float updateTime;
+
+	bool running;
+	Coroutine runAutomationCoroutine;
+
 	Edge3DMapGenerator mapGenerator;
 	Edge3DMeshGenerator meshGenerator;
 
-	void Start () {
+
+	void Start () 
+	{
 		mapGenerator = GetComponent<Edge3DMapGenerator>();
 		int[,,] map = mapGenerator.GenerateInitialGameOfLifeMap();
 
 		meshGenerator = GetComponent<Edge3DMeshGenerator>();
-		meshGenerator.GenerateCubeBox(map);
+		meshGenerator.Generate(map);
+
+		running = true;
+		runAutomationCoroutine = StartCoroutine(RunAutomaton());
+	}
+
+
+	void Update()
+	{
+		if (Input.GetMouseButtonDown(0)) {
+			if (running) {
+				StopCoroutine(runAutomationCoroutine);
+			} else {
+				runAutomationCoroutine = StartCoroutine(RunAutomaton());
+			}
+			running = !running;
+		}
+	}
+
+
+	private IEnumerator RunAutomaton()
+	{
+		while (true) {
+			int[,,] map = mapGenerator.UpdateMap();
+			meshGenerator.Render(map);
+			yield return new WaitForSeconds(updateTime);
+		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 }

@@ -49,7 +49,7 @@ public class D3MapGenerator : MonoBehaviour {
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
 					for (int z = 0; z < depth; z++) {
-						map[x, y, z] = lifeEngine.calc(x, y, z);
+						map[x, y, z] = lifeEngine.CalcCellInLukesBox(x, y, z);
 					}
 				}
 			}

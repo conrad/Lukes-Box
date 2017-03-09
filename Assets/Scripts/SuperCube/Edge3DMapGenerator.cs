@@ -10,7 +10,7 @@ public class Edge3DMapGenerator : MonoBehaviour
 	public int depth;
 
 	int[,,] map;
-//	LifeEngine lifeEngine;
+	LifeEngine lifeEngine;
 
 
 //	void Start() {
@@ -115,6 +115,31 @@ public class Edge3DMapGenerator : MonoBehaviour
 	}
 
 
+	public int[,,] UpdateMap() 
+	{
+		if (lifeEngine == null) {
+			if (map == null) {
+				GenerateInitialGameOfLifeMap();
+			}
+
+			lifeEngine = new LifeEngine(map);
+		}
+
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				for (int z = 0; z < depth; z++) {
+					map[x, y, z] = lifeEngine.CalcCellInSuperCube(x, y, z);
+				}
+			}
+		}
+
+		return map;
+	}
+
+}
+
+
+
 
 //	void GenerateMap() {
 //		map = new int[width, height, depth];
@@ -155,7 +180,7 @@ public class Edge3DMapGenerator : MonoBehaviour
 	//			}
 	//		}
 	//	}
-}
+//}
 
 
 
