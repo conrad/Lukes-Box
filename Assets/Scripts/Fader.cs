@@ -6,23 +6,29 @@ public class Fader : MonoBehaviour
 {
 	float alphaLevel; 
 	MeshRenderer meshRenderer;
+	float[] rgb;
 
 	void Start()
 	{
 		meshRenderer = GetComponent<MeshRenderer>();
 		alphaLevel = meshRenderer.material.color.a;
+
+		rgb = new float[3];
+		rgb[0] = meshRenderer.material.color.r;
+		rgb[1] = meshRenderer.material.color.g;
+		rgb[2] = meshRenderer.material.color.b;
+
 	}
 
 	void Update()
 	{
 		if (alphaLevel > 0f) {
 			alphaLevel -= 0.1f;
-			Debug.Log(alphaLevel);
-			meshRenderer.material.color = new Color(1f, 1f, 1f, alphaLevel);
+			meshRenderer.material.color = new Color(rgb[0], rgb[1], rgb[2], alphaLevel);
 
 			if (alphaLevel < 0.1f) {
 				alphaLevel = 0f;
-				meshRenderer.material.color = new Color(1f, 1f, 1f, alphaLevel);
+				meshRenderer.material.color = new Color(rgb[0], rgb[1], rgb[2], alphaLevel);
 			}
 		}
 	}
