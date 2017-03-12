@@ -96,6 +96,7 @@ public class Edge3DMapGenerator : MonoBehaviour
 		map[36, wallCenter[1]+2, z] = 1;
 		map[36, wallCenter[1]+3, z] = 1;
 
+		Debug.Log("wallCenter: " + wallCenter[1] + ". z: " + z);
 		return map;
 	}
 
@@ -133,6 +134,7 @@ public class Edge3DMapGenerator : MonoBehaviour
 			}
 		}
 
+		Debug.Log("value at 26, 25, 39 : " + map[26, 20 + 5, 39]);
 		return map;
 	}
 
