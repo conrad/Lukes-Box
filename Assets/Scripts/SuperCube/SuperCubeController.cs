@@ -24,8 +24,8 @@ public class SuperCubeController : MonoBehaviour
 		meshGenerator = GetComponent<Edge3DMeshGenerator>();
 		meshGenerator.Generate(map);
 
-		running = true;
-		runAutomationCoroutine = StartCoroutine(RunAutomaton());
+		running = false;
+//		runAutomationCoroutine = StartCoroutine(RunAutomaton());
 	}
 
 

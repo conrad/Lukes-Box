@@ -22,7 +22,7 @@ public class MouseLook : MonoBehaviour
 	float rotationY = 0F;
 	Quaternion originalRotation;
 
-	bool isRotating = true;
+	bool isRotating = false;
 
 
 	void Start ()

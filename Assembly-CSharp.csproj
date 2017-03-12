@@ -46,17 +46,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MouseLook.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\CubeController.cs" />
      <Compile Include="Assets\Scripts\Fader.cs" />
      <Compile Include="Assets\Scripts\LifeEngine.cs" />
      <Compile Include="Assets\Scripts\LukesBox\CubeBoxGenerator.cs" />
      <Compile Include="Assets\Scripts\LukesBox\D3MapGenerator.cs" />
      <Compile Include="Assets\Scripts\SuperCube\Edge3DMapGenerator.cs" />
      <Compile Include="Assets\Scripts\SuperCube\Edge3DMeshGenerator.cs" />
+     <Compile Include="Assets\Scripts\SuperCube\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\SuperCube\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\SuperCube\SuperCubeController.cs" />
      <Compile Include="Assets\Scripts\TwoDimensional\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\TwoDimensional\MeshGenerator.cs" />
-     <Compile Include="Assets\SuperCubeController.cs" />
      <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
