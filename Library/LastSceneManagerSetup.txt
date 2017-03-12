@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Animating.unity
+- path: Assets/Scenes/TheSuperCube.unity
   isLoaded: 1
   isActive: 1

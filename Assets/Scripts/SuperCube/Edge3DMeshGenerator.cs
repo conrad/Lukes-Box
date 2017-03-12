@@ -40,12 +40,12 @@ public class Edge3DMeshGenerator : MonoBehaviour
 		) {
 			parent = _parent;
 
-			int nodeCountX = map.GetLength(0);
-			int nodeCountY = map.GetLength(1);
-			int nodeCountZ = map.GetLength(2);
-			float mapWidth = nodeCountX * cellSize;
+			int nodeCountX  = map.GetLength(0);
+			int nodeCountY  = map.GetLength(1);
+			int nodeCountZ  = map.GetLength(2);
+			float mapWidth  = nodeCountX * cellSize;
 			float mapHeight = nodeCountY * cellSize;
-			float mapDepth = nodeCountZ * cellSize;
+			float mapDepth  = nodeCountZ * cellSize;
 
 			cubes = new GameObject[nodeCountX,nodeCountY, nodeCountZ];
 
@@ -97,6 +97,7 @@ public class Edge3DMeshGenerator : MonoBehaviour
 			CubeController cubeController = cubes[x, y, z].GetComponent<CubeController>();
 
 			if (status == 1) {
+				cubes[x, y, z].GetComponent<MeshRenderer>().enabled = true;
 				cubeController.Activate();
 			} else if (status == 0) {
 				cubeController.Deactivate();
