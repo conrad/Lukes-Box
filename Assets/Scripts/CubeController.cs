@@ -17,13 +17,13 @@ public class CubeController : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();		
 		mesh = GetComponent<MeshRenderer>();
+		mesh.material.color = new Color( Random.value, Random.value, Random.value, 1.0f );
 	}
 
 
 		
 	public void Activate() 
 	{
-		mesh.material.color = new Color( Random.value, Random.value, Random.value, 1.0f );
 		anim.SetTrigger("ExpandIt");
 	}
 

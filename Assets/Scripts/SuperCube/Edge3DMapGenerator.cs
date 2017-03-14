@@ -13,22 +13,6 @@ public class Edge3DMapGenerator : MonoBehaviour
 	LifeEngine lifeEngine;
 
 
-//	void Start() {
-//		GenerateInitialGameOfLifeMap();
-////		lifeEngine = new LifeEngine(map);
-////		StartCoroutine(UpdateMap());
-//	}
-
-
-//	void Update() {
-//		if (Input.GetMouseButtonDown(0)) {
-//			StopCoroutine(UpdateMap());
-//			GenerateMap();
-//			StartCoroutine(UpdateMap());
-//		}
-//	}
-
-
 	public int[,,] GenerateInitialGameOfLifeMap()
 	{
 		GenerateEmptyMap();
@@ -96,7 +80,6 @@ public class Edge3DMapGenerator : MonoBehaviour
 		map[36, wallCenter[1]+2, z] = 1;
 		map[36, wallCenter[1]+3, z] = 1;
 
-		Debug.Log("wallCenter: " + wallCenter[1] + ". z: " + z);
 		return map;
 	}
 
@@ -109,7 +92,7 @@ public class Edge3DMapGenerator : MonoBehaviour
 		for (int x = 0; x < width; x ++) {
 			for (int y = 0; y < height; y ++) {
 				for (int z = 0; z < depth; z++) {
-					map [x, y, z] = 0;
+					map [x, y, z] = 0;		// Tuple.Create(1,0);
 				}
 			}
 		}
@@ -134,7 +117,6 @@ public class Edge3DMapGenerator : MonoBehaviour
 			}
 		}
 
-		Debug.Log("value at 26, 25, 39 : " + map[26, 20 + 5, 39]);
 		return map;
 	}
 
@@ -169,65 +151,12 @@ public class Edge3DMapGenerator : MonoBehaviour
 
 
 
-	//	void OnDrawGizmos() {
-	//		if (map != null) {
-	//			for (int x = 0; x < width; x ++) {
-	//				for (int y = 0; y < height; y++) {
-	//					for (int z = 0; z < depth; z++) {
-	//						Gizmos.color = (map [x, y, z] == 1) ? Color.black : Color.white;
-	//						Vector3 pos = new Vector3 (-width / 2 + x + .5f, -height / 2 + y + .5f, -depth / 2 + z + .5f);
-	//						Gizmos.DrawCube (pos, Vector3.one);
-	//					}
-	//				}
-	//			}
-	//		}
-	//	}
-//}
 
 
-
-
-
-
-
-
-
-
-
-//	void SmoothMap() {
-//		for (int x = 0; x < width; x ++) {
-//			for (int y = 0; y < height; y ++) {
-//				for (int z = 0; z < depth; z++) {
-//					int neighbourWallTiles = GetSurroundingWallCount (x, y, z);
-//
-//					if (neighbourWallTiles > 6)
-//						map [x, y, z] = 1;
-//					else if (neighbourWallTiles < 6)
-//						map [x, y, z] = 0;
-//				}
-//			}
-//		}
-//	}
-
-
-//	int GetSurroundingWallCount(int gridX, int gridY, int gridZ) {
-//		int wallCount = 0;
-//		for (int neighbourX = gridX - 1; neighbourX <= gridX + 1; neighbourX ++) {
-//			for (int neighbourY = gridY - 1; neighbourY <= gridY + 1; neighbourY++) {
-//				for (int neighbourZ = gridZ - 1; neighbourZ <= gridZ + 1; neighbourZ++) {
-//					if (neighbourX >= 0 && neighbourX < width 
-//						&& neighbourY >= 0 && neighbourY < height
-//						&& neighbourZ >= 0 && neighbourZ < depth
-//					) {
-//						if (neighbourX != gridX || neighbourY != gridY || neighbourZ != gridZ) {
-//							wallCount += map [neighbourX, neighbourY, neighbourZ];
-//						}
-//					} else {
-//						wallCount++;
-//					}
-//				}
-//			}
-//		}
-//
-//		return wallCount;
-//	}
+/*
+ * Tuple<int, int>[] tuples =
+ * {
+ * 	 Tuple.Create(50, 350),
+ *   Tuple.Create(50, 650),
+ * };
+ */ 
